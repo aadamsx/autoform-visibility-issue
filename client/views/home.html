@@ -1,0 +1,16 @@
+<template name="home">
+  {{#with setFormMode}}
+    {{#autoForm collection="People" id="home" doc=doc type=type class="form-horizontal"}}
+      {{> inputControlRadio name="otherNamesUsed" title="Other Names 1"}}
+      <p>show or hide other Names Used 2 radio control below based on [Other Names 1] value=Yes using helpers</p>
+      {{#if checkOtherName "otherNamesUsed" value=true}}
+          {{> inputControlRadio name="otherNamesUsed2" title="Other Names 2"}}
+          <p>show or hide other Names Used 3 radio control below based on [Other Names 2] value=Yes using helpers</p>
+          {{#if checkOtherName "otherNamesUsed2" value=true}}
+              {{> inputControlRadio name="otherNamesUsed3" title="Other Names 3"}}
+          {{/if}}
+      {{/if}}
+      <button type="submit" class="btn btn-primary pull-right">Submit</button>
+    {{/autoForm}}
+  {{/with}}
+</template>
